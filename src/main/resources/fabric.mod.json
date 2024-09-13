@@ -8,15 +8,18 @@
 		"Me!"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage":"https://fabricmc.net/",
+		"sources": "https://github.com/vitaliy65/FABRIC-fancy-experience-1.20.1.git"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/fancy-experience/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			"com.vurbin.fancyexperience.FancyExperience"
+		],
+		"client": [
+			"com.vurbin.fancyexperience.FancyExperienceClient"
 		],
 		"fabric-datagen": [
 			"com.vurbin.fancyexperience.FancyExperienceDataGenerator"
