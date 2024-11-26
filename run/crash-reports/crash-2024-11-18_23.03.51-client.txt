@@ -4,7 +4,7 @@
 Time: 2024-11-18 23:03:51
 Description: Unexpected error
 
-java.lang.NullPointerException: Cannot invoke "com.vurbin.fancyexperience.customRenderer.ExperienceCounter.render(net.minecraft.client.util.math.MatrixStack)" because "this.experienceCounter" is null
+java.lang.NullPointerException: Cannot invoke "com.vurbin.fancyexperience.Screen.ExperienceCounter.render(net.minecraft.client.util.math.MatrixStack)" because "this.experienceCounter" is null
 	at com.vurbin.fancyexperience.FancyExperience.lambda$onInitialize$0(FancyExperience.java:23)
 	at net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.lambda$static$0(HudRenderCallback.java:27)
 	at net.minecraft.client.gui.hud.InGameHud.handler$zlc000$fabric-rendering-v1$render(InGameHud.java:1386)

@@ -144,7 +144,7 @@ public class UpgradeScreen extends Screen {
     }
 
     // Метод для отрисовки текста с заданным масштабом
-    private void renderTextWithScale(DrawContext context, String text, int x, int y, float scale, boolean center) {
+    public void renderTextWithScale(DrawContext context , String text , int x , int y , float scale , boolean center) {
         // Вычисляем ширину текста без учета масштаба
         int textWidth = textRenderer.getWidth(Text.literal(text));
 
@@ -183,7 +183,7 @@ public class UpgradeScreen extends Screen {
         return Math.min(scaleX, scaleY);
     }
 
-    private void renderBackground(DrawContext context, int baseWidth, int baseHeight, int x, int y, Identifier backgroundTexture) {
+    public void renderBackground(DrawContext context, int baseWidth, int baseHeight, int x, int y, Identifier backgroundTexture) {
         // Масштабирование размеров текстуры относительно экрана
         float widthScaleFactor = width / 640f; // Коэффициент для масштабирования ширины
         float heightScaleFactor = height / 360f; // Коэффициент для масштабирования высоты
@@ -196,7 +196,7 @@ public class UpgradeScreen extends Screen {
         context.drawTexture(backgroundTexture, x, y, 0, 0, scaledWidth, scaledHeight, scaledWidth, scaledHeight);
     }
 
-    public static void renderPlayerModelWithDrawContext(DrawContext context, int x, int y, int size, float mouseX, float mouseY, PlayerEntity player) {
+    private static void renderPlayerModelWithDrawContext(DrawContext context, int x, int y, int size, float mouseX, float mouseY, PlayerEntity player) {
         // Вычисляем разницу координат между курсором и моделью
         double deltaX = mouseX - x;  // Разница по X (горизонталь)
         double deltaY = mouseY - y / 2;  // Разница по Y (вертикаль)

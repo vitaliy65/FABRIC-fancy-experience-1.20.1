@@ -20,10 +20,10 @@ public class KeybindingHandler {
         String mod_id = MOD_ID;  // Задаем значение mod_id
 
         openMenuKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key." + mod_id + ".spook",  // Конкатенируем строку для ключа
+                "Open menu",  // Конкатенируем строку для ключа
                 InputUtil.Type.KEYSYM,       // Тип привязки клавиш, KEYSYM для клавиатуры, MOUSE для мыши
-                GLFW.GLFW_KEY_K,             // Код клавиши (R)
-                "category." + mod_id + ".test" // Конкатенируем строку для категории
+                GLFW.GLFW_KEY_K,             // Код клавиши (K)
+                mod_id // Конкатенируем строку для категории
         ));
 
         // Обработчик для нажатия клавиши

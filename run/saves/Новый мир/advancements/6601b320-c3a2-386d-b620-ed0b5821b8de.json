@@ -23,9 +23,9 @@
     },
     "done": true
   },
-  "minecraft:story/enchant_item": {
+  "minecraft:recipes/misc/mojang_banner_pattern": {
     "criteria": {
-      "enchanted_item": "2024-11-26 11:31:38 +0200"
+      "has_enchanted_golden_apple": "2024-11-26 11:31:28 +0200"
     },
     "done": true
   },
@@ -35,9 +35,57 @@
     },
     "done": false
   },
-  "minecraft:recipes/misc/mojang_banner_pattern": {
+  "minecraft:story/enchant_item": {
     "criteria": {
-      "has_enchanted_golden_apple": "2024-11-26 11:31:28 +0200"
+      "enchanted_item": "2024-11-26 11:31:38 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/leather_helmet": {
+    "criteria": {
+      "has_leather": "2024-11-26 13:29:48 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/leather_leggings": {
+    "criteria": {
+      "has_leather": "2024-11-26 13:29:48 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/item_frame": {
+    "criteria": {
+      "has_leather": "2024-11-26 13:29:48 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/leather_chestplate": {
+    "criteria": {
+      "has_leather": "2024-11-26 13:29:48 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/combat/leather_boots": {
+    "criteria": {
+      "has_leather": "2024-11-26 13:29:48 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/firework_rocket_simple": {
+    "criteria": {
+      "has_gunpowder": "2024-11-26 13:29:48 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/leather_horse_armor": {
+    "criteria": {
+      "has_leather": "2024-11-26 13:29:48 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/tnt": {
+    "criteria": {
+      "has_gunpowder": "2024-11-26 13:29:48 +0200"
     },
     "done": true
   },

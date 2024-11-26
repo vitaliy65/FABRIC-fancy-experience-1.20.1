@@ -4,8 +4,8 @@
 Time: 2024-11-18 23:33:09
 Description: Unexpected error
 
-java.lang.NullPointerException: Cannot read field "currentScreen" because "com.vurbin.fancyexperience.customRenderer.ExperienceCounter.client" is null
-	at com.vurbin.fancyexperience.customRenderer.ExperienceCounter.lambda$render$0(ExperienceCounter.java:21)
+java.lang.NullPointerException: Cannot read field "currentScreen" because "com.vurbin.fancyexperience.Screen.ExperienceCounter.client" is null
+	at com.vurbin.fancyexperience.Screen.ExperienceCounter.lambda$render$0(ExperienceCounter.java:21)
 	at net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.lambda$static$0(HudRenderCallback.java:27)
 	at net.minecraft.client.gui.hud.InGameHud.handler$zfj000$fabric-rendering-v1$render(InGameHud.java:1886)
 	at net.minecraft.client.gui.hud.InGameHud.render(InGameHud.java:370)
@@ -25,7 +25,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Render thread
 Stacktrace:
-	at com.vurbin.fancyexperience.customRenderer.ExperienceCounter.lambda$render$0(ExperienceCounter.java:21)
+	at com.vurbin.fancyexperience.Screen.ExperienceCounter.lambda$render$0(ExperienceCounter.java:21)
 	at net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.lambda$static$0(HudRenderCallback.java:27)
 	at net.minecraft.client.gui.hud.InGameHud.handler$zfj000$fabric-rendering-v1$render(InGameHud.java:1886)
 	at net.minecraft.client.gui.hud.InGameHud.render(InGameHud.java:370)

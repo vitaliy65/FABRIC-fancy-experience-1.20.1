@@ -5,7 +5,7 @@ Time: 2024-11-24 22:57:53
 Description: Unexpected error
 
 java.lang.NullPointerException: Cannot read field "totalExperience" because "this.player" is null
-	at com.vurbin.fancyexperience.customRenderer.ExperienceCounter.onHudRender(ExperienceCounter.java:26)
+	at com.vurbin.fancyexperience.Screen.ExperienceCounter.onHudRender(ExperienceCounter.java:26)
 	at net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.lambda$static$0(HudRenderCallback.java:27)
 	at net.minecraft.client.gui.hud.InGameHud.handler$zli000$fabric-rendering-v1$render(InGameHud.java:1886)
 	at net.minecraft.client.gui.hud.InGameHud.render(InGameHud.java:370)
@@ -25,7 +25,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Render thread
 Stacktrace:
-	at com.vurbin.fancyexperience.customRenderer.ExperienceCounter.onHudRender(ExperienceCounter.java:26)
+	at com.vurbin.fancyexperience.Screen.ExperienceCounter.onHudRender(ExperienceCounter.java:26)
 	at net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback.lambda$static$0(HudRenderCallback.java:27)
 	at net.minecraft.client.gui.hud.InGameHud.handler$zli000$fabric-rendering-v1$render(InGameHud.java:1886)
 	at net.minecraft.client.gui.hud.InGameHud.render(InGameHud.java:370)
