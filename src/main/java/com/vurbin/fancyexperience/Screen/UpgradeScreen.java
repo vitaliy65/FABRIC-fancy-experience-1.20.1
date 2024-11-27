@@ -1,5 +1,6 @@
 package com.vurbin.fancyexperience.Screen;
 
+import com.vurbin.fancyexperience.Player.BonusHandler;
 import com.vurbin.fancyexperience.Player.PlayerStats;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -71,11 +72,11 @@ public class UpgradeScreen extends Screen {
         renderTextWithScale ( context ,  "Сила",        positionR , yScale + (int)(yBaseOffset*3.6),screenScale * 0.9f , false);
         renderTextWithScale ( context ,  "Ловкость",    positionR , yScale + (int)(yBaseOffset*4.4),screenScale * 0.9f , false);
         renderTextWithScale ( context ,  "Удача",       positionR , yScale + (int)(yBaseOffset*5.2),screenScale * 0.9f , false);
-        renderTextWithScale ( context ,  playerStats.getVitality ()+"" ,  attributePositionWidth, yScale + yBaseOffset*2,screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getEndurance ()+"" , attributePositionWidth, yScale + (int)(yBaseOffset*2.8),screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getStrength()+"",    attributePositionWidth, yScale + (int)(yBaseOffset*3.6),screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getAgility()+"",     attributePositionWidth, yScale + (int)(yBaseOffset*4.4),screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getLuck()+"",        attributePositionWidth, yScale + (int)(yBaseOffset*5.2),screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  playerStats.getVitality() + "", attributePositionWidth, yScale + yBaseOffset*2,screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  playerStats.getEndurance()+ "", attributePositionWidth, yScale + (int)(yBaseOffset*2.8),screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  playerStats.getStrength()+ "",  attributePositionWidth, yScale + (int)(yBaseOffset*3.6),screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  playerStats.getAgility()+ "",   attributePositionWidth, yScale + (int)(yBaseOffset*4.4),screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  playerStats.getLuck()+ "",      attributePositionWidth, yScale + (int)(yBaseOffset*5.2),screenScale * 0.9f , true);
 
         renderTextWithScale ( context ,  "Показатели:" ,xScale + (width/12), yScale + (int)(yBaseOffset * 7.4), screenScale * 1.2f, false);
         renderTextWithScale ( context ,  "Здоровье",    xScale + (width/20), yScale + (int)(yBaseOffset*8.5),   0.9f, false);
@@ -85,20 +86,24 @@ public class UpgradeScreen extends Screen {
         renderTextWithScale ( context ,  String.format ("%.2f", playerStats.getAttack()), xScale + (width/4), yScale + (int)(yBaseOffset*9.3), screenScale * 0.9f , true);
         renderTextWithScale ( context ,  String.format ("%.2f", playerStats.getDefense()),xScale + (width/4), yScale + (int)(yBaseOffset*10.1), screenScale * 0.9f , true);
 
-        renderTextWithScale ( context ,  "Защита:" ,                positionR , yScale + (int)(yBaseOffset * 7.4),screenScale * 1.2f, false);
+        renderTextWithScale ( context ,  "Защита:" ,        positionR , yScale + (int)(yBaseOffset * 7.4),screenScale * 1.2f, false);
         renderTextWithScale ( context ,  "Физический урон", positionR , yScale + (int)(yBaseOffset*8.5),  screenScale * 0.9f, false);
         renderTextWithScale ( context ,  "Отравление",      positionR , yScale + (int)(yBaseOffset*9.3),  screenScale * 0.9f, false);
         renderTextWithScale ( context ,  "Горение",         positionR , yScale + (int)(yBaseOffset*10.1), screenScale * 0.9f, false);
         renderTextWithScale ( context ,  "Иссушение",       positionR , yScale + (int)(yBaseOffset*10.9), screenScale * 0.9f, false);
-        renderTextWithScale ( context ,  "Больше опыта",        positionR , yScale + (int)(yBaseOffset*11.7), screenScale * 0.9f, false);
-        renderTextWithScale ( context ,  playerStats.getVitality() + "%",  attributePositionWidth, yScale + (int)(yBaseOffset*8.5), screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getEndurance()+ "%",  attributePositionWidth, yScale + (int)(yBaseOffset*9.3), screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getStrength()+ "%",   attributePositionWidth, yScale + (int)(yBaseOffset*10.1),screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getAgility()+ "%",    attributePositionWidth, yScale + (int)(yBaseOffset*10.9),screenScale * 0.9f , true);
-        renderTextWithScale ( context ,  playerStats.getLuck()*5+ "%",       attributePositionWidth, yScale + (int)(yBaseOffset*11.7),screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  "Больше опыта",    positionR , yScale + (int)(yBaseOffset*11.7), screenScale * 0.9f, false);
+        renderTextWithScale ( context ,  WithBonus(playerStats.getVitality (), BonusHandler.RESISTANCE_MULTIPLIER) + "%",  attributePositionWidth, yScale + (int)(yBaseOffset*8.5), screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  WithBonus(playerStats.getEndurance (), BonusHandler.RESISTANCE_MULTIPLIER) + "%", attributePositionWidth, yScale + (int)(yBaseOffset*9.3), screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  WithBonus(playerStats.getStrength(), BonusHandler.RESISTANCE_MULTIPLIER) + "%",   attributePositionWidth, yScale + (int)(yBaseOffset*10.1),screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  WithBonus(playerStats.getAgility(), BonusHandler.RESISTANCE_MULTIPLIER) + "%",    attributePositionWidth, yScale + (int)(yBaseOffset*10.9),screenScale * 0.9f , true);
+        renderTextWithScale ( context ,  WithBonus(playerStats.getLuck(), BonusHandler.LUCK_MULTIPLIER) + "%",             attributePositionWidth, yScale + (int)(yBaseOffset*11.7),screenScale * 0.9f , true);
 
         int levelTextPosition = (int)(width / 7.8f);
         renderTextWithScale ( context ,  "" + playerStats.getCurrentLevel(), levelTextPosition, yScale + (int)(yBaseOffset*12.15),screenScale * 0.9f , true);
+    }
+
+    private String WithBonus(int param, Float bonus){
+        return String.valueOf ( (int)(param * (bonus * 100) ));
     }
 
     private void renderCustomButtons(){
@@ -141,6 +146,19 @@ public class UpgradeScreen extends Screen {
             refreshScreen ();
         } ).dimensions ( buttonPositionWidth , yScale + (int)(yBaseOffset*5.2)-2 , 9 , 9 ).build () );
 
+        if(playerStats.getExp () < playerStats.getExpForNextLevel ()){
+            vitalityButton.visible = false;
+            enduranceButton.visible = false;
+            strengthButton.visible = false;
+            agilityButton.visible = false;
+            luckButton.visible = false;
+        } else{
+            vitalityButton.visible = true;
+            enduranceButton.visible = true;
+            strengthButton.visible = true;
+            agilityButton.visible = true;
+            luckButton.visible = true;
+        }
     }
 
     // Метод для отрисовки текста с заданным масштабом

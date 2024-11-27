@@ -12,7 +12,7 @@ import net.minecraft.util.math.Box;
 import java.util.List;
 
 public class ExperienceOrbParticleSpawner {
-    static float spawnChance = 0.5f;
+    static float spawnChance = 0.25f;
     public static void registerParticlesSpawning() {
         // Реєструємо подію клієнтського тіку
         ClientTickEvents.END_WORLD_TICK.register(ExperienceOrbParticleSpawner::onWorldTick);

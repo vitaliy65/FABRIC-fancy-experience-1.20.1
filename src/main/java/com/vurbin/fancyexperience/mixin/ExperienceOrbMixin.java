@@ -1,6 +1,6 @@
 package com.vurbin.fancyexperience.mixin;
 
-import com.vurbin.fancyexperience.Player.ExperienceBonusHandler;
+import com.vurbin.fancyexperience.Player.BonusHandler;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -19,11 +19,11 @@ public class ExperienceOrbMixin {
             int baseExperience = orb.getExperienceAmount(); // Получаем базовый опыт орба
 
             // Получаем PlayerStats для игрока
-            var playerStats = ExperienceBonusHandler.playerStats;
+            var playerStats = BonusHandler.playerStats;
             if (playerStats != null) {
                 // Вычисляем бонусный опыт
-                ExperienceBonusHandler bonusHandler = new ExperienceBonusHandler(playerStats);
-                int bonusExperience = bonusHandler.calculateBonus(baseExperience);
+                BonusHandler bonusHandler = new BonusHandler (playerStats);
+                int bonusExperience = bonusHandler.calculateExperienceBonus (baseExperience);
 
                 // Добавляем опыт игроку вручную
                 serverPlayer.addExperience(baseExperience + bonusExperience);

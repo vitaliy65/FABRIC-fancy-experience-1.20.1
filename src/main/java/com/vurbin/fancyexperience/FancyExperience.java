@@ -1,5 +1,7 @@
 package com.vurbin.fancyexperience;
 
+import com.vurbin.fancyexperience.Player.BonusHandler;
+import com.vurbin.fancyexperience.Player.PlayerStats;
 import com.vurbin.fancyexperience.customParticles.ExperienceCustomParticle;
 import com.vurbin.fancyexperience.item.ModItemGroups;
 import com.vurbin.fancyexperience.item.ModItems;
@@ -17,8 +19,15 @@ public class FancyExperience implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
+
 		ServerNetworkingHandler.register();
+
 		ExperienceOrbParticleSpawner.registerParticlesSpawning();
+
 		ExperienceCustomParticle.register();
+
+		// Инициализация статистики игрока
+		PlayerStats playerStats = new PlayerStats ( 0 , 0 , 0 , 0 , 0 );
+		BonusHandler bonusHandler = new BonusHandler(playerStats);
 	}
 }
