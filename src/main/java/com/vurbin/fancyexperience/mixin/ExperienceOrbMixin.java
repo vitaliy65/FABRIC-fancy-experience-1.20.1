@@ -9,6 +9,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static com.vurbin.fancyexperience.FancyExperience._stats;
+
 @Mixin(ExperienceOrbEntity.class)
 public class ExperienceOrbMixin {
 
@@ -19,11 +21,9 @@ public class ExperienceOrbMixin {
             int baseExperience = orb.getExperienceAmount(); // Получаем базовый опыт орба
 
             // Получаем PlayerStats для игрока
-            var playerStats = BonusHandler.playerStats;
-            if (playerStats != null) {
+            if (_stats != null) {
                 // Вычисляем бонусный опыт
-                BonusHandler bonusHandler = new BonusHandler (playerStats);
-                int bonusExperience = bonusHandler.calculateExperienceBonus (baseExperience);
+                int bonusExperience = BonusHandler.calculateExperienceBonus (baseExperience, _stats.getLuck ());
 
                 // Добавляем опыт игроку вручную
                 serverPlayer.addExperience(baseExperience + bonusExperience);

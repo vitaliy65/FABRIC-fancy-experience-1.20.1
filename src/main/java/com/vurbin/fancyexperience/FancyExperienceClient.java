@@ -1,6 +1,5 @@
 package com.vurbin.fancyexperience;
 
-import com.vurbin.fancyexperience.Player.BonusHandler;
 import com.vurbin.fancyexperience.Screen.ExperienceCounter;
 import com.vurbin.fancyexperience.Screen.KeybindingHandler;
 import com.vurbin.fancyexperience.customParticles.ExperienceCustomParticle;
@@ -10,22 +9,19 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.entity.EntityType;
 
-import static com.vurbin.fancyexperience.Player.BonusHandler.playerStats;
-
 public class FancyExperienceClient implements ClientModInitializer {
-    KeybindingHandler keyHandler;
-    BonusHandler experienceBonusHandler;
     @Override
     public void onInitializeClient() {
-        // Отключаем стандартный рендер и регистрируем кастомный рендер для ExperienceOrbEntity
+        // Регистрация кастомного рендера для ExperienceOrbEntity
         EntityRendererRegistry.register(EntityType.EXPERIENCE_ORB, CustomExperienceOrbRenderer::new);
 
-        HudRenderCallback.EVENT.register(new ExperienceCounter(playerStats));
+        // Регистрация HUD-обработчика
+        HudRenderCallback.EVENT.register(new ExperienceCounter());
 
-        keyHandler = new KeybindingHandler( playerStats );
+        // Регистрация обработчика клавиш
+        KeybindingHandler.initializeKeyStates();
 
-        experienceBonusHandler = new BonusHandler (playerStats);
-
-        ExperienceCustomParticle.registerClient ();
+        // Регистрация клиентских частиц
+        ExperienceCustomParticle.registerClient();
     }
 }

@@ -9,15 +9,14 @@ import net.minecraft.util.Identifier;
 import oshi.jna.platform.windows.NtDll;
 
 import static com.vurbin.fancyexperience.FancyExperience.MOD_ID;
+import static com.vurbin.fancyexperience.FancyExperience._stats;
 
 public class ExperienceCounter implements HudRenderCallback {
     private static final String COUNTER_BACKGROUND_TEXTURE = "textures/gui/exp_counter_background.png";
     Identifier backgroundTexture;
-    PlayerStats _playerStats;
     MinecraftClient client = MinecraftClient.getInstance();
-    public ExperienceCounter(PlayerStats playerStats) {
+    public ExperienceCounter() {
         backgroundTexture = Identifier.of(MOD_ID, COUNTER_BACKGROUND_TEXTURE);
-        _playerStats = playerStats;
     }
 
     @Override
@@ -28,7 +27,7 @@ public class ExperienceCounter implements HudRenderCallback {
             float experienceProgress = client.player.experienceProgress;
 
             int totalExperience = getTotalExperienceForLevel(experienceLevel) + (int)(experienceProgress * getNextExperienceCost(experienceLevel));
-            _playerStats.setExp(totalExperience);
+            _stats.setExp(totalExperience);
 
             int xText = drawContext.getScaledWindowWidth () - 29;
             int yText = drawContext.getScaledWindowHeight () - 92;

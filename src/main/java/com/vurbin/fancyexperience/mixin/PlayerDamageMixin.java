@@ -1,6 +1,7 @@
 package com.vurbin.fancyexperience.mixin;
 
 import com.vurbin.fancyexperience.Player.BonusHandler;
+import com.vurbin.fancyexperience.Player.PlayerStats;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EntityType;
@@ -16,12 +17,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import static com.vurbin.fancyexperience.Player.BonusHandler.playerStats;
+import static com.vurbin.fancyexperience.FancyExperience._stats;
+
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerDamageMixin extends LivingEntity {
-    private final BonusHandler bonusHandler = new BonusHandler(playerStats);
-
     protected PlayerDamageMixin(EntityType<? extends LivingEntity> entityType , World world) {
         super ( entityType , world );
     }
@@ -64,13 +64,13 @@ public abstract class PlayerDamageMixin extends LivingEntity {
         // Считаем уменьшение урона в зависимости от типа
         float reducedDamage = amount;
         if (source.getName().equals("inFire") || source.getName().equals("onFire")) {
-            reducedDamage -= bonusHandler.calculateFireResistanceBonus(amount);
+            reducedDamage -= BonusHandler.calculateResistanceBonus(amount, _stats.getStrength());
         } else if (source.getName().equals("magic")) {
-            reducedDamage -= bonusHandler.calculatePoisonResistanceBonus(amount);
+            reducedDamage -= BonusHandler.calculateResistanceBonus(amount, _stats.getEndurance() );
         } else if (source.getName().equals("arrow") || source.getName().equals("thrown") || source.getName().equals("mob")) {
-            reducedDamage -= bonusHandler.calculatePhysicalResistanceBonus(amount);
+            reducedDamage -= BonusHandler.calculateResistanceBonus(amount, _stats.getVitality() );
         } else if (source.getName().equals("wither")) {
-            reducedDamage -= bonusHandler.calculateWitherResistanceBonus(amount);
+            reducedDamage -= BonusHandler.calculateResistanceBonus(amount, _stats.getAgility() );
         }
 
         // Убедимся, что урон не становится отрицательным

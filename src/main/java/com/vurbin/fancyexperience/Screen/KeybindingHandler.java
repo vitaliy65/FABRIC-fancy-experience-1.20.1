@@ -9,21 +9,20 @@ import net.minecraft.client.util.InputUtil;
 import org.lwjgl.glfw.GLFW;
 
 import static com.vurbin.fancyexperience.FancyExperience.MOD_ID;
+import static com.vurbin.fancyexperience.FancyExperience._stats;
 
 public class KeybindingHandler {
 
     private static KeyBinding openMenuKey;
-    private static PlayerStats _playerStats = null;
 
-    public KeybindingHandler(PlayerStats playerStats) {
-        _playerStats = playerStats;
-        String mod_id = MOD_ID;  // Задаем значение mod_id
+    public KeybindingHandler() {}
 
+    public static void initializeKeyStates(){
         openMenuKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "Open menu",  // Конкатенируем строку для ключа
                 InputUtil.Type.KEYSYM,       // Тип привязки клавиш, KEYSYM для клавиатуры, MOUSE для мыши
                 GLFW.GLFW_KEY_K,             // Код клавиши (K)
-                mod_id // Конкатенируем строку для категории
+                MOD_ID // Конкатенируем строку для категории
         ));
 
         // Обработчик для нажатия клавиши
@@ -36,7 +35,7 @@ public class KeybindingHandler {
 
     // Метод для открытия экрана прокачки
     public static void openCharacterUpgradeMenu() {
-        if(_playerStats != null)
-            MinecraftClient.getInstance().setScreen(new UpgradeScreen(_playerStats));
+        if(_stats != null)
+            MinecraftClient.getInstance().setScreen(new UpgradeScreen(_stats));
     }
 }

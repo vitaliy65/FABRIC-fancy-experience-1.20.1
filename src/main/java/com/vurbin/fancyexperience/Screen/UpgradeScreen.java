@@ -21,7 +21,6 @@ public class UpgradeScreen extends Screen {
     private final PlayerStats playerStats;
     private static final String BACKGROUND_TEXTURE = "textures/gui/background.png";
     private static final String BACKGROUND_PLAYER_TEXTURE = "textures/gui/background_player.png";
-    private static final String mod_id = MOD_ID;
 
     protected UpgradeScreen(PlayerStats playerStats) {
         super(Text.of("Upgrade Menu"));
@@ -37,8 +36,8 @@ public class UpgradeScreen extends Screen {
     // For versions 1.20 and after
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        Identifier backgroundTexture = Identifier.of(mod_id, BACKGROUND_TEXTURE);
-        Identifier backgroundPlayerTexture = Identifier.of(mod_id, BACKGROUND_PLAYER_TEXTURE);
+        Identifier backgroundTexture = Identifier.of(MOD_ID, BACKGROUND_TEXTURE);
+        Identifier backgroundPlayerTexture = Identifier.of(MOD_ID, BACKGROUND_PLAYER_TEXTURE);
 
         renderBackground(context, 480, 270, (int)(width / 4.26f), (int)(height / 12f), backgroundTexture);
         renderBackground(context, 135, 270, (int)(width / 42f), (int)(height / 12f), backgroundPlayerTexture);
